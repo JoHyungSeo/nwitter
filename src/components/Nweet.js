@@ -50,7 +50,7 @@ const Nweet = ({nweetObj, isOwner}) => {
                     <>
                     <div>{nweetObj.text}</div>
                     {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} />}
-                    <div>{new Date(nweetObj.createdAt).toLocaleString()}</div>
+                    {new Date(nweetObj.createdAt).toLocaleString()}
                         {isOwner && (
                             <div class="nweet__actions">
                                 <span onClick={onDeleteClick}>
