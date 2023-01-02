@@ -60,7 +60,7 @@ const Nweet = ({nweetObj, isOwner}) => {
                                     <FontAwesomeIcon icon={faPencilAlt} />
                                 </span>
                             </div>    
-                    )};
+                    )}
                 </>)
             }
         </div>
