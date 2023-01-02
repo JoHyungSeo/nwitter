@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } f
 import React, { useState } from "react";
 
 const auth = getAuth();
+const inputStyles ={};
 
 const AuthFrom = () => {
     const [email, setEmail] = useState("");
@@ -33,13 +34,14 @@ const AuthFrom = () => {
     const toggleAccount = () => setNewAccount(prev => !prev);
     return (
         <>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} className="container">
                 <input 
                     name="email" 
                     type="text" 
                     placeholder="Email" 
                     required value={email}
                     onChange={onChange}
+                    className="authInput"
                 />
                 <input 
                     name="password" 
@@ -47,11 +49,16 @@ const AuthFrom = () => {
                     placeholder="Password" 
                     required value={password}
                     onChange={onChange}
+                    className="authInput"
                 />
-                <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
-                {error}
+                <input 
+                    type="submit" 
+                    value={newAccount ? "Create Account" : "Log In"} 
+                    className="authInput authSubmit"
+                />
+                {error && <span className="authError">{error}</span>}
             </form>
-            <span onClick={toggleAccount}>{newAccount  ? "Log In" : "Create Account"}</span>
+            <span onClick={toggleAccount} className="authSwitch">{newAccount  ? "Log In" : "Create Account"}</span>
         </>
     )
 };

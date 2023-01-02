@@ -24,16 +24,19 @@ export default ({ userObj, refreshUser }) => {
     };
     return (
         <>
-        <form onSubmit={onSubmit}>
-            <input 
-                onChange={onChange} 
-                type="text" 
-                placeholder="Display name" 
-                value={newDisplayName} 
-            />
-            <input type="submit" value="Update Profile" />
-        </form>
-            <button onClick={onLogOutClick}>Log Out</button>
+            <div className="container">
+            <form onSubmit={onSubmit} className="profileForm">
+                <input 
+                    onChange={onChange} 
+                    type="text" 
+                    autoFocus
+                    placeholder="Display name" 
+                    value={newDisplayName}
+                    className="formInput"
+                />
+            </form>
+            <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>Log Out</span>
+            </div>
         </>
     );
 };
